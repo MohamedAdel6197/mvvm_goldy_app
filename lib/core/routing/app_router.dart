@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../../home_screen.dart';
 import 'app_routes.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings setting) {
     switch (setting.name) {
       case AppRoutes.home:
-        return MaterialPageRoute(builder: (context) => MyApp());
+        return MaterialPageRoute(builder: (context) => HomeScreen());
       default:
         return MaterialPageRoute(builder: (context) => DefaultRoute());
     }

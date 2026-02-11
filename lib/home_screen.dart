@@ -11,20 +11,24 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.onBackgroundColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          CustomButton(
-            text: AppStrings.gold,
-            onTap: () {},
-            color: AppColors.primaryColor,
-          ),
-          CustomButton(
-            text: AppStrings.seliver,
-            onTap: () {},
-            color: AppColors.secondaryColor,
-          ),
-        ],
+      body: Container(
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomButton(
+              text: AppStrings.gold,
+              onTap: () {},
+              color: AppColors.primaryColor,
+            ),
+            SizedBox(height: 60),
+            CustomButton(
+              text: AppStrings.seliver,
+              onTap: () {},
+              color: AppColors.secondaryColor,
+            ),
+          ],
+        ),
       ),
     );
   }
