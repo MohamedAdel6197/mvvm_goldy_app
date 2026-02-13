@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mvvm_workshop/features/gold/data/repos/gold_repo.dart';
+import 'package:mvvm_workshop/features/gold/presentation/cubits/gold_cubit/gold_cubit.dart';
 
 import '../../features/gold/presentation/screens/gold_screen.dart';
 import '../../home_screen.dart';
@@ -10,7 +13,12 @@ class AppRouter {
       case AppRoutes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen());
       case AppRoutes.gold:
-        return MaterialPageRoute(builder: (context) => GoldScreen());
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => GoldCubit(repo: GoldRepo())..getGoldPrice(),
+            child: GoldScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(builder: (context) => DefaultRoute());
     }

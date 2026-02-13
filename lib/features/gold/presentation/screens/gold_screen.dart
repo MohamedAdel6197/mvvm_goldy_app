@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_images.dart';
+import '../cubits/gold_cubit/gold_cubit.dart';
+import '../cubits/gold_cubit/gold_states.dart';
 import 'widgets/custom_text.dart';
 
 class GoldScreen extends StatelessWidget {
@@ -14,14 +17,29 @@ class GoldScreen extends StatelessWidget {
         title: Text("Gold Tracker"),
         centerTitle: true,
         titleTextStyle: TextStyle(fontSize: 20, color: AppColors.amberColor),
+        backgroundColor: AppColors.onBackgroundColor,
       ),
+      backgroundColor: AppColors.onBackgroundColor,
+
       body: Center(
-        child: Column(
-          children: [
-            Image.asset(AppImages.gold, height: 200),
-            SizedBox(height: 30),
-            CustomText(txt: "Gold Price"),
-          ],
+        child: BlocBuilder<GoldCubit, GoldState>(
+          builder: (context, state) {
+            if (state is GoldLoadingState) {
+              return CircularProgressIndicator(color: AppColors.amberColor);
+            } else if (state is GoldErroState) {
+              Text(state.errMsg);
+            } else if (state is GoldSuccesState) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(AppImages.gold, height: 200),
+                  SizedBox(height: 30),
+                  CustomText(txt: "${state.goldModel.price} EGP"),
+                ],
+              );
+            }
+            return Container();
+          },
         ),
       ),
     );
