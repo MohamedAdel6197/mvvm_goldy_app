@@ -27,7 +27,9 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 60),
             CustomButton(
               text: AppStrings.sliver,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.sliver);
+              },
               color: AppColors.secondaryColor,
             ),
           ],
