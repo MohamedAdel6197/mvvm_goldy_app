@@ -1,4 +1,5 @@
 class ApiConstants {
-  static const String baseUrl = 'https://jsonplaceholder.typicode.com';
-  static const String endpoint = '/gold';
+  static const String baseUrl = 'https://api.gold-api.com/price/';
+  static const String goldEndpoint = 'XAU';
+  static const String sliverEndpoint = 'XAG';
 }

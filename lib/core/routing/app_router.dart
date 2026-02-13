@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../features/gold/presentation/screens/gold_screen.dart';
 import '../../home_screen.dart';
 import 'app_routes.dart';
 
@@ -8,6 +9,8 @@ class AppRouter {
     switch (setting.name) {
       case AppRoutes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen());
+      case AppRoutes.gold:
+        return MaterialPageRoute(builder: (context) => GoldScreen());
       default:
         return MaterialPageRoute(builder: (context) => DefaultRoute());
     }

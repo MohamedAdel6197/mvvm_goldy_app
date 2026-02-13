@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/constants/app_colors.dart';
 import 'core/constants/app_strings.dart';
+import 'core/routing/app_routes.dart';
 import 'core/widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,12 +19,14 @@ class HomeScreen extends StatelessWidget {
           children: [
             CustomButton(
               text: AppStrings.gold,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.gold);
+              },
               color: AppColors.primaryColor,
             ),
             SizedBox(height: 60),
             CustomButton(
-              text: AppStrings.seliver,
+              text: AppStrings.sliver,
               onTap: () {},
               color: AppColors.secondaryColor,
             ),
